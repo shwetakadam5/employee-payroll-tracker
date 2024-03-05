@@ -1,15 +1,12 @@
 // Get a reference to the #add-employees-btn element
 const addEmployeesBtn = document.querySelector('#add-employees-btn');
 
-const employeesArray = [];
+
 // Collect employee data
 const collectEmployees = function () {
 
-
-
   // Declared and initialized an employee array
-  
-  
+  const employeesArray = [];
   console.log(`employeesArray ${employeesArray}`);
 
   // TODO: Get user input to create and return an array of employee objects
@@ -17,51 +14,53 @@ const collectEmployees = function () {
   let keepAddingEmployee = true;
   let addEmployee = true;
 
+  /* keepAddingEmployee keeps the loop till user chooses to exit 7*/
   while (keepAddingEmployee) {
     // Declared and initialized an employee object
     let employee = {
       // Properties are made up of key-value pairs
-      firstName: "",
-      lastName: "",
+      firstName: "defaultFirstName",
+      lastName: "defaultLastName",
       salary: 0,
     };
 
-
+    /* addEmployee will keep track of the addition of new employee */
     if (addEmployee) {
       let userInputFirstName = window.prompt("Enter first name:");
       console.log(`userInputFirstName --> ${userInputFirstName}`);
       let userInputLastName = window.prompt("Enter last name:");
       console.log(`userInputLastName --> ${userInputLastName}`);
       let userInputSalary = window.prompt("Enter salary:");
-      console.log(userInputSalary);
+      console.log(`userInputSalary --> ${userInputSalary} and ${typeof (userInputSalary)}`);
 
+      if (userInputFirstName != null && userInputLastName != null && userInputSalary != null) {
 
+        console.log(`If firstName/lastName/salary are not null`);
+        if (userInputFirstName != "") {
+          employee.firstName = userInputFirstName;
+        }
 
-      if (userInputFirstName == "" || userInputLastName == "" || userInputSalary == "") {
+        if (userInputLastName != "") {
+          employee.lastName = userInputLastName;
+        }
 
-        window.alert("Invalid Entry");
-
-      }
-
-      if ((userInputFirstName == null) || (userInputLastName == null) || (userInputSalary == null)) {
-        console.log(`employeesArray--> ${employeesArray}`);
-        return employeesArray;
-      } else if (userInputFirstName != "" && userInputLastName != "" && userInputSalary != "") {   
-
-
-        console.log(`userInputFirstName 2222--> ${userInputFirstName}`);
-        employee.firstName = userInputFirstName;
-        employee.lastName = userInputLastName;
-        employee.salary = userInputSalary;
+        if (!isNaN(userInputSalary) && Number.parseInt(userInputSalary)) {
+          console.log(`!isNaN(userInputSalary) --> ${!isNaN(userInputSalary)} `);
+          console.log(`Number.parseInt(userInputSalary)--> ${Number.parseInt(userInputSalary)} and ${typeof (Number.parseInt(userInputSalary))}`);
+          employee.salary = Number.parseInt(userInputSalary);
+        }
         employeesArray.push(employee);
         console.log(employeesArray[0]);
         addEmployee = window.confirm("Do you want to add another employee");
         console.log(addEmployee);
-       
+
+      } else {
+        window.alert("The employee details were incomplete due to cancel action");
+        addEmployee = window.confirm("Do you want to add another employee");
       }
     }
     else {
-      console.log(`employeesArraywhen add employee is false --> ${employeesArray}`);
+      /* On cancel exit the flow by returning the employees array */
       return employeesArray;
     }
   }
