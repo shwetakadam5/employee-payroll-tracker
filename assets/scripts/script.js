@@ -19,8 +19,8 @@ const collectEmployees = function () {
     // Declared and initialized an employee object
     let employee = {
       // Properties are made up of key-value pairs
-      firstName: "defaultFirstName",
-      lastName: "defaultLastName",
+      firstName: "",
+      lastName: "",
       salary: 0,
     };
 
@@ -93,9 +93,15 @@ const displayAverageSalary = function (employeesArray) {
 
 // Select a random employee
 const getRandomEmployee = function (employeesArray) {
-  // TODO: Select and display a random employee
+  // TODO: Select and display a random employee 
 
-  console.log(`Start -- getRandomEmployee function`);
+  //Generate a random index 
+
+  const randomIndex = Math.floor(Math.random() * employeesArray.length);  
+   // Get a random employee from within the employee array
+  const randomSelectedEmployee = employeesArray[randomIndex];
+  
+  console.log(`Congratulations to ${randomSelectedEmployee.firstName} ${randomSelectedEmployee.lastName}, our random drawing winner!`);
   
 }
 
