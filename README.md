@@ -113,25 +113,6 @@ THEN my employee data is displayed on the page sorted alphabetically by last nam
 If no values are provided then the defaulted values are First name, Last name and salary will be defaulted to $0.
 
 ![alt text](assets/images/DefaultValuesEmployee.png)
-- Click on the link Social Media Marketing : User will be navigated to the details of Social Media Marketing on the webpage.
-
-**Test 2** : Hovering on the navigation links will display appropriate text.
-- Hover on the link Search Engine Optimization : Hover text will display "Click to visit Search Engine Optimization"
-- Hover on the link Online Reputation Management : Hover text will display "Click to visit Online Reputation Management"
-- Hover on the link Social Media Marketing : Hover text will display "Click to visit Social Media Marketing"
-
-**Test 3** :
-- Hover on the images : Hover text will display the title of the respective image.
-
-**Test 4** : 
-- Check if appropriate alt text is displayed if the image fails to load for some reason.
-
-**Test 5**: 
-- Check appropriate headers are displayed for every section.
-
-**Test 6** : 
-- Check the title of the webpage upon loading.
-
 
 
 ## License

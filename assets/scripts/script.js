@@ -51,12 +51,12 @@ const collectEmployees = function () {
         employeesArray.push(employee);
 
         //Confirmation to know if the user wants to add another employee or stop
-        addEmployee = window.confirm("Do you want to add another employee");
+        addEmployee = window.confirm("Do you want to add another employee?");
 
       } else {
 
-        window.alert("Employee creation failed!! \n Reason: Cancel option was selected during input of employee values");
-        addEmployee = window.confirm("Do you want to add another employee");
+        window.alert("Employee creation failed!! \n \n Reason: Cancel option was selected during input of employee values");
+        addEmployee = window.confirm("Do you want to add another employee?");
       }
     }
     else {
