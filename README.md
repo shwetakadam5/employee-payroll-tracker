@@ -10,13 +10,12 @@
 
 ## Table of Contents (Optional)
 
-If your README is long, add a table of contents to make it easy for users to find what they need.
-
 - [Installation](#installation)
 - [Usage](#usage)
-- [Credits](#credits)
+- [User Story](#user-story)
+- [Acceptance Criteria](#acceptance-criteria)
+- [Tests](#tests)
 - [License](#license)
-
 
 ## Installation
 
@@ -33,7 +32,7 @@ Follow these instructions to create your project and deploy it to GitHub Pages:
 5. Navigate to <your-github-username.github.io/your-repository-name> and you will find that your new webpage has gone live! For example, if your GitHub username is "lernantino" and the project is "css-demo-site", then your URL would be <lernantino.github.io/css-demo-site>.
 
 
-## User Story
+## User-Story
 
 ```md
 AS A payroll manager
