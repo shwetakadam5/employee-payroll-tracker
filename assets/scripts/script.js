@@ -16,8 +16,8 @@ const collectEmployees = function () {
 
     // Declared and initialized an employee object
     let employee = {
-      firstName: "",
-      lastName: "",
+      firstName: "First name",
+      lastName: "Last name",
       salary: 0,
     };
 
