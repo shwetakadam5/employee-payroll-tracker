@@ -42,12 +42,10 @@ const collectEmployees = function () {
         if (userInputLastName != "") {
           employee.lastName = userInputLastName;
         }
-        console.log(userInputSalary);
+        
         // Check to ensure that the salary entered is a number, otherwise it should default to $0
-        if (!isNaN(userInputSalary) && Number.parseInt(userInputSalary) || Number.parseFloat(userInputSalary)) {
-          console.log(userInputSalary);
-          employee.salary = Number.parseFloat(userInputSalary);
-          console.log(employee.salary);
+        if (!isNaN(userInputSalary) && Number.parseInt(userInputSalary) || Number.parseFloat(userInputSalary)) {          
+          employee.salary = Number.parseFloat(userInputSalary);          
         }
 
         employeesArray.push(employee);
