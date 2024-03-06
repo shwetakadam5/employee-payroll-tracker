@@ -2,40 +2,39 @@
 const addEmployeesBtn = document.querySelector('#add-employees-btn');
 
 
-// Collect employee data
+// Collect employee data : This function will allow a user to add multiple employees to display on the page.
 const collectEmployees = function () {
 
   // Declared and initialized an employee array
   const employeesArray = [];
-  console.log(`employeesArray ${employeesArray}`);
-
-  // TODO: Get user input to create and return an array of employee objects
 
   let keepAddingEmployee = true;
   let addEmployee = true;
 
-  /* keepAddingEmployee keeps the loop till user chooses to exit 7*/
+  /* keepAddingEmployee : keeps the employee addition until user chooses to stop */
   while (keepAddingEmployee) {
+
     // Declared and initialized an employee object
     let employee = {
-      // Properties are made up of key-value pairs
       firstName: "",
       lastName: "",
       salary: 0,
     };
 
-    /* addEmployee will keep track of the addition of new employee */
+    // addEmployee keeps a check if user continues or stops  
+
     if (addEmployee) {
-      let userInputFirstName = window.prompt("Enter first name:");
-      console.log(`userInputFirstName --> ${userInputFirstName}`);
-      let userInputLastName = window.prompt("Enter last name:");
-      console.log(`userInputLastName --> ${userInputLastName}`);
-      let userInputSalary = window.prompt("Enter salary:");
-      console.log(`userInputSalary --> ${userInputSalary} and ${typeof (userInputSalary)}`);
 
+      // Get user input to create employee
+      let userInputFirstName = window.prompt("Enter first name:", "First name");
+      let userInputLastName = window.prompt("Enter last name:", "Last name");
+      let userInputSalary = window.prompt("Enter salary:", "0");
+
+      // Check to handle the cancel option of the input prompts for the firstname, lastname and salary.
       if (userInputFirstName != null && userInputLastName != null && userInputSalary != null) {
+        4
 
-        console.log(`If firstName/lastName/salary are not null`);
+        // The user provided values are set in the employee object fields
         if (userInputFirstName != "") {
           employee.firstName = userInputFirstName;
         }
@@ -44,68 +43,71 @@ const collectEmployees = function () {
           employee.lastName = userInputLastName;
         }
 
+        // Check to ensure that the salary entered is a number, otherwise it should default to $0
         if (!isNaN(userInputSalary) && Number.parseInt(userInputSalary)) {
-          console.log(`!isNaN(userInputSalary) --> ${!isNaN(userInputSalary)} `);
-          console.log(`Number.parseInt(userInputSalary)--> ${Number.parseInt(userInputSalary)} and ${typeof (Number.parseInt(userInputSalary))}`);
           employee.salary = Number.parseInt(userInputSalary);
         }
+
         employeesArray.push(employee);
-        console.log(employeesArray[0]);
+
+        //Confirmation to know if the user wants to add another employee or stop
         addEmployee = window.confirm("Do you want to add another employee");
-        console.log(addEmployee);
 
       } else {
-        window.alert("The employee details were incomplete due to cancel action");
+
+        window.alert("Employee creation failed!! \n Reason: Cancel option was selected during input of employee values");
         addEmployee = window.confirm("Do you want to add another employee");
       }
     }
     else {
-      /* On cancel exit the flow by returning the employees array */
+      // On cancel exit the flow by returning the employees array
       return employeesArray;
     }
   }
 
-
-
 }
 
-// Display the average salary
+// Display the average salary : This function will take in the generated array of employees and log the average salary and number of employees to the console using template literal. 
 const displayAverageSalary = function (employeesArray) {
 
-  // TODO: Calculate and display the average salary
-  if (Array.isArray(employeesArray) && employeesArray.length > 0){
-  console.log(employeesArray);
+  //Check to ensure that the employees array is not empty
+  if (Array.isArray(employeesArray) && employeesArray.length > 0) {
 
-  let totalEmployeeSalary = 0;
-  let avgEmployeeSalary = 0;
+    console.log(employeesArray);
 
-  for (const employee of employeesArray) {
-    totalEmployeeSalary += employee.salary;
-    avgEmployeeSalary = totalEmployeeSalary / employeesArray.length;
+    let totalEmployeeSalary = 0;
+    let avgEmployeeSalary = 0;
+
+    // The block iterates through the employee array and calculates the average salary of the employees
+    for (const employee of employeesArray) {
+      totalEmployeeSalary += employee.salary;
+      avgEmployeeSalary = totalEmployeeSalary / employeesArray.length;
+    }
+
+    console.log(`The average employee salary between our ${employeesArray.length} employee(s) is ${avgEmployeeSalary.toLocaleString("en-US", {
+      style: "currency",
+      currency: "USD"
+    })}`);
+
   }
 
-  console.log(`The average employee salary between our ${employeesArray.length} employee(s) is ${avgEmployeeSalary.toLocaleString("en-US", {
-    style: "currency",
-    currency: "USD"
-  })}`);
 }
 
-}
+// Select a random employee : his function will take in the generated array of employees, randomly select one employee, and use a template literal to log their full name to the console
 
-// Select a random employee
 const getRandomEmployee = function (employeesArray) {
-  // TODO: Select and display a random employee 
 
-  //Generate a random index 
-  if (Array.isArray(employeesArray) && employeesArray.length > 0){
-    const randomIndex = Math.floor(Math.random() * employeesArray.length);  
+  //Generate a random index for the employees array
+  if (Array.isArray(employeesArray) && employeesArray.length > 0) {
+    const randomIndex = Math.floor(Math.random() * employeesArray.length);
+
     // Get a random employee from within the employee array
-   const randomSelectedEmployee = employeesArray[randomIndex];
-   
-   console.log(`Congratulations to ${randomSelectedEmployee.firstName} ${randomSelectedEmployee.lastName}, our random drawing winner!`);
- 
+    const randomSelectedEmployee = employeesArray[randomIndex];
+
+    console.log(`Congratulations to ${randomSelectedEmployee.firstName} ${randomSelectedEmployee.lastName}, our random drawing winner!`);
+
   }
-    
+
 }
 
 /*
