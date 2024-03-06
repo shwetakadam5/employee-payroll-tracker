@@ -42,6 +42,11 @@ SO THAT I can see my employees' payroll data and properly budget for the company
 
 ## Usage
 
+Link for the repository : https://github.com/shwetakadam5/employee-payroll-tracker
+
+Link for the website : https://shwetakadam5.github.io/employee-payroll-tracker/
+
+
 - Once the website is live, the following webpage should be displayed to the user :
 ![alt text](assets/images/EmployeePayrollTrackerHomePage.jpeg)
 
